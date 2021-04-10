@@ -2,7 +2,10 @@
   hosts: 172.30.254.100
   gather_facts: false
   connection: network_cli
-  ansible_network_os: ios
+  
+  vars:
+  
+    ansible_network_os: ios
 
   tasks:
     - name: Run multiple commands on Cisco IOS nodes
