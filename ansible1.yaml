@@ -1,3 +1,4 @@
+---
 - name: Running show commands on Cisco IOS
   hosts: 172.30.254.100
   gather_facts: false
