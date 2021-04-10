@@ -1,14 +1,13 @@
 ---
-- name: Running show commands on Cisco IOS
+- name: sh ip int br
   hosts: 172.30.254.100
   gather_facts: false
   connection: network_cli
 
   tasks:
-    - name: Run multiple commands on Cisco IOS nodes
+    - name: Show IP Interface Brief
       ios_command: #ansible module
         commands: #commands to run
-          - show version
           - show ip interface brief
 
       register: output
