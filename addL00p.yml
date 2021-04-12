@@ -12,5 +12,5 @@
       ios_config: # this gets us into the CLI
         parents: "{{ item }}"
       with_items:
-        - interface loopback100
-        - interface loopback200
+        - interface Loopback100
+        - interface Loopback200
