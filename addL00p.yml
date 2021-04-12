@@ -9,8 +9,10 @@
   
   tasks:
     - name: Add L00000000000000000000P back int
-      ios_config: # this gets us into the CLI
-        lines:
-          - configure termainal
-          - interface Loopback100
+      ios_command:
+        commands:
+          - interface lo100
           - ip address 192.168.1.1 255.255.255.0
+          
+       register: output
+    - debug: var=output.stdout_lines
