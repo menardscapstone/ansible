@@ -10,7 +10,7 @@
   tasks:
     - name: Add L00000000000000000000P back int
       ios_config: # this gets us into the CLI
-        parents: configure terminal
-      with_items:
-        - interface Loopback100
-        - interface Loopback200
+        lines:
+          - configure termainal
+          - interface Loopback100
+          - ip address 192.168.1.1 255.255.255.0
