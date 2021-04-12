@@ -10,7 +10,7 @@
   tasks:
     - name: Add L00000000000000000000P back int
       ios_config: # this gets us into the CLI
-        parents: interface loopback1 # get to the int
-        lines:
-          - interface l01
-          - ip address 1.1.1.1
+        parents: "{{ item }}"
+      with_items:
+        - interface loopback 100
+        - interface loopback 200
