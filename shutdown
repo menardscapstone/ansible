@@ -1,0 +1,8 @@
+# ansible playbook to shutdown interfaces
+---
+- name: shutdown ports
+  cli_command:
+    command: "{{ item }}"
+  with_items:
+    - "interface GigabitEthernet 1/0/{{ port }}"
+    - shutdown
