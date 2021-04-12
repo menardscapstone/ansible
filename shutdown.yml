@@ -1,6 +1,7 @@
 # ansible playbook to shutdown interfaces
 ---
 - name: shutdown ports
+  hosts: all
   cli_command:
     command: "{{ item }}"
   with_items:
