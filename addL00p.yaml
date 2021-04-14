@@ -9,9 +9,9 @@
     - name: Show IP Interface Brief
       ios_command: #ansible module
         commands: #commands to run
-          - interface Loopback2
           - ip address 192.168.1.1 255.255.255.0
           - no shut
+      parents: Loopback 2
 
       register: output
 
