@@ -9,11 +9,14 @@
       ios_config:
         save_when: modified
         lines:
-          - hostname "{{inventory_hostname}}"
-          - network 0.0.0.0 0.0.0.0 area 0
-          - distance 120
-          - deafult-information originate
-        parents: router ospf 1
+          - 10 permit ip host 192.0.2.1 any log
+          - 20 permit ip host 192.0.2.2 any log
+          - 30 permit ip host 192.0.2.3 any log
+          - 40 permit ip host 192.0.2.4 any log
+          - 50 permit ip host 192.0.2.5 any log
+    parents: ip access-list extended test
+    before: no ip access-list extended test
+    match: exact
       register: output
 
     - name: printing at the console
