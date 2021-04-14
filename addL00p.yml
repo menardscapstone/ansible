@@ -1,16 +1,20 @@
 ---
-- name: sh ip int br
-  hosts: 172.30.254.100
+- name: OSPF
+  hosts: routers
   gather_facts: false
   connection: network_cli
 
   tasks:
-    - name: Show IP Interface Brief
-      ios_command: #ansible module
-        commands: #commands to run
-          - interface Loopback 2
-          - ip address 192.168.1.105 255.255.255.0
-
+    - name: CONFIGURE OSPF
+      ios_config:
+        save_when: modified
+        lines:
+          - hostname "{{inventory_hostname}}"
+          - network 0.0.0.0 0.0.0.0 area 0
+          - distance 120
+          - deafult-information originate
+        parents: router ospf 1
       register: output
 
-    - debug: var=output.stdout_lines
+    - name: printing at the console
+      debug: var=output
