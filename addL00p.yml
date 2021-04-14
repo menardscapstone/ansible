@@ -1,18 +1,16 @@
-# ansible playbook to add a loop back address
-# we are not that advanced so we are doing Hosts manually for right now
-# this will be for the router - IP: 172.30.254.100
 ---
-- name: Add L00P back Int
+- name: sh ip int br
   hosts: 172.30.254.100
   gather_facts: false
   connection: network_cli
-  
+
   tasks:
-    - name: Add L00000000000000000000P back int
-      ios_command:
-        commands:
+    - name: Show IP Interface Brief
+      ios_command: #ansible module
+        commands: #commands to run
           - interface Loopback 2
-          - ip address 192.168.1.1 255.255.255.0
-          
-       register: output
+          - ip address 192.168.1.105 255.255.255.0
+
+      register: output
+
     - debug: var=output.stdout_lines
