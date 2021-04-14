@@ -11,7 +11,7 @@
     - name: Add L00000000000000000000P back int
       ios_command:
         commands:
-          - interface lo100
+          - interface lo2
           - ip address 192.168.1.1 255.255.255.0
           
        register: output
