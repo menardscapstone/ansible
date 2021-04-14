@@ -1,6 +1,6 @@
 ---
 - name: OSPF
-  hosts: routers
+  hosts: 172.30.254.100
   gather_facts: false
   connection: network_cli
 
