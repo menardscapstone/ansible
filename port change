@@ -1,0 +1,17 @@
+---
+- name: port change
+  hosts: 172.30.254.102
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Port Change
+      ios_command: #ansible module
+        commands: #commands to run
+          - config
+          - int g1/0/20
+          - shutdown
+
+      register: output
+
+    - debug: var=output.stdout_lines
