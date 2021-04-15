@@ -1,0 +1,20 @@
+---
+- name: port change
+  hosts: 172.30.254.100
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Block Pings
+      ios_command: #ansible module
+        commands: #commands to run
+          - enable
+          - conf t
+          - access-list 1 deny 172.30.254.102
+          - access-list 1 deny 172.30.254.103
+          - int g0/0
+          - ip access-group 1 in
+
+      register: output
+
+    - debug: var=output.stdout_lines
