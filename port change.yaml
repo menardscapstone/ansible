@@ -3,7 +3,6 @@
   hosts: 172.30.254.102
   gather_facts: false
   connection: network_cli
-  ansible_network_os: ios
 
   tasks:
     - name: Port Change
