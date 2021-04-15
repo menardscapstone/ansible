@@ -9,6 +9,8 @@
     - name: Show IP Interface Brief
       ios_command: #ansible module
         commands: #commands to run
+          - enable
+          - config t
           - ip address 192.168.1.1 255.255.255.0
           - no shut
       parents: Loopback 2
