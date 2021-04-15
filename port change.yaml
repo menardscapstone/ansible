@@ -8,7 +8,9 @@
     - name: Port Change
       ios_command: #ansible module
         commands: #commands to run
-          - config
+          - enable
+          - *M3n@rds*
+          - config t
           - int g1/0/20
           - shutdown
 
