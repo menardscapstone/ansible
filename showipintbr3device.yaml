@@ -1,0 +1,16 @@
+  
+---
+- name: sh ip int br
+  hosts: 172.30.254.100,172.03.254.103,172.30.254.102
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Show IP Interface Brief
+      ios_command: #ansible module
+        commands: #commands to run
+          - show ip interface brief
+
+      register: output
+
+    - debug: var=output.stdout_lines
