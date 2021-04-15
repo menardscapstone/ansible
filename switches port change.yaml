@@ -1,0 +1,18 @@
+---
+- name: port change
+  hosts: Cisco Switches
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Port Change
+      ios_command: #ansible module
+        commands: #commands to run
+          - enable
+          - config t
+          - int g1/0/20
+          - shutdown
+
+      register: output
+
+    - debug: var=output.stdout_lines
