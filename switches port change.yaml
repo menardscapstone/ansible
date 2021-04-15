@@ -1,6 +1,6 @@
 ---
 - name: port change
-  hosts: Cisco Switches
+  hosts: 172.30.254.102:172.30.254.103
   gather_facts: false
   connection: network_cli
 
