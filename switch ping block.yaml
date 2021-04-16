@@ -10,7 +10,7 @@
         commands: #commands to run
           - enable
           - conf t
-          - ip access-list standard 1
+          - ip access-list # this needs to be an extended access list
           - int g0/0
           - ip access-group 1 in
       register: output
