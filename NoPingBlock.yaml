@@ -11,8 +11,7 @@
         commands: #commands to run
           - enable
           - conf t
-          - no access-list 1 deny 172.30.254.102
-          - no access-list 1 deny 172.30.254.103
+          - no access-list standard 1
           - int g0/0
           - no ip access-group 1 in
 
