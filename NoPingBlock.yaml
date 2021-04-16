@@ -11,9 +11,9 @@
         commands: #commands to run
           - enable
           - conf t
-          - no ip access-list standard 1
+          - no ip access-list extended menards
           - int g0/0
-          - no ip access-group 1 in
+          - no ip access-group menards in
 
       register: output
 
