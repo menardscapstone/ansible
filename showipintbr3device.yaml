@@ -1,7 +1,7 @@
   
 ---
 - name: sh ip int br
-  hosts: 3 hosts
+  hosts: 172.30.254.100:172.30.254.102:172.30.254.103
   gather_facts: false
   connection: network_cli
 
