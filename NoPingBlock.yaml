@@ -11,7 +11,7 @@
         commands: #commands to run
           - enable
           - conf t
-          - no access-list standard 1
+          - no ip access-list standard 1
           - int g0/0
           - no ip access-group 1 in
 
