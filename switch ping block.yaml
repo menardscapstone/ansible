@@ -10,9 +10,12 @@
         commands: #commands to run
           - enable
           - conf t
-          - ip access-list # this needs to be an extended access list
+          - ip access-list extended menards
+          - deny icmp 172.30.254.102 0.0.0.255 any
+          - deny icmp 172.30.254.103 0.0.0.255 any
+          - permit ip any any
           - int g0/0
-          - ip access-group 1 in
+          - ip access-group menards in
       register: output
 
     - debug: var=output.stdout_lines
