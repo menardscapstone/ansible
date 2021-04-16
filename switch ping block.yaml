@@ -10,11 +10,9 @@
         commands: #commands to run
           - enable
           - conf t
-          - access-list 1 deny 172.30.254.102
-          - access-list 1 deny 172.30.254.103
+          - no ip access-list standard 1
           - int g0/0
-          - ip access-group 1 in
-
+          - no ip access-group 1 in
       register: output
 
     - debug: var=output.stdout_lines
