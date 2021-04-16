@@ -10,9 +10,9 @@
         commands: #commands to run
           - enable
           - conf t
-          - no ip access-list standard 1
+          - ip access-list standard 1
           - int g0/0
-          - no ip access-group 1 in
+          - ip access-group 1 in
       register: output
 
     - debug: var=output.stdout_lines
