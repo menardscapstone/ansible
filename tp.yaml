@@ -8,8 +8,6 @@
     - name: change VLAN with user input
       ios_command:
         commands:
-          - enable
-          - config t
           - interface "{{ var_portabbreviation }}"
           - sw mo acc 
           - sw acc vlan "{{ var_vlannumber }}"
