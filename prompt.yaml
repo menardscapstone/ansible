@@ -1,0 +1,28 @@
+# 1st install python-passlib
+---
+- host: 172.30.254.102 # SW2
+  gather_facts: false
+  become: true # this allows us to run at an elevated level
+  vars_prompt: # this is how we call the prompt
+
+    - name: var_portabbreviation # this is the var to collect the port number
+      private: no # allows us to see what we are typing
+      prompt: "enter the PORT NUMBER you would like to change"
+
+    - name: var_vlannumber  # this is the var for the vlan number
+      private: no
+      prompt: "enter the VLAN NUMBER you would like to switch to"
+
+# ---------------next part: run playbook using collected vars----------------------------      
+
+  tasks:
+    - name: change VLAN with user input
+      ios_command:
+        commands:
+          - enable
+          - config t
+          - interface "{{ var_portabbreviation }}"
+          - sw mo acc 
+          - sw acc vlan "{{ var_vlannumber }}"
+      register: output
+    - debug: var=output.stdout_lines
