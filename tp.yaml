@@ -2,10 +2,8 @@
 - name: VLAN test on Sw2
   hosts: 172.30.254.102 # SW2
   gather_facts: false
-
-
-     
-
+  connection: network_cli
+  
   tasks:
     - name: change VLAN with user input
       ios_command:
