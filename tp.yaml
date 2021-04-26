@@ -8,8 +8,8 @@
     - name: change VLAN with user input
       ios_command:
         commands:
-          - interface "{{ var_portabbreviation }}"
+          - interface {{ var_portabbreviation }}
           - sw mo acc 
-          - sw acc vlan "{{ var_vlannumber }}"
+          - sw acc vlan {{ var_vlannumber }}
       register: output
     - debug: var=output.stdout_lines
