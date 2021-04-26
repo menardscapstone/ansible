@@ -2,7 +2,7 @@
 - name: VLAN test on Sw2
   hosts: 172.30.254.102 # SW2
   gather_facts: false
-  become: true # this allows us to run at an elevated level
+  #become: true # this allows us to run at an elevated level
   vars_prompt: # this is how we call the prompt
 
     - name: var_portabbreviation # this is the var to collect the port number
